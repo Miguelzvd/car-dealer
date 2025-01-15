@@ -83,37 +83,63 @@ export function FilterPage() {
           </label>
           <select
             id="vehicleType"
-            className="w-full mt-2 p-2 border border-gray-300 rounded-md text-black hover:cursor-pointer"
+            className="w-full  mt-2 p-2 border rounded-md hover:cursor-pointer text-sm bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500 font-sans"
             onChange={handleVehicleTypeChange}
             value={vehicleType}
           >
-            <option value="">Select Type</option>
-            <option value="car">Car</option>
-            <option value="truck">Truck</option>
-            <option value="motorcycle">Motorcycle</option>
+            <option value="">
+              Select Type
+            </option>
+            <option value="car">
+              Car
+            </option>
+            <option value="truck">
+              Truck
+            </option>
+            <option value="motorcycle">
+              Motorcycle
+            </option>
           </select>
         </div>
 
         <div className="mb-4 relative">
-          <label htmlFor="make" className="block text-lg font-medium">
+          <label
+            htmlFor="make"
+            className={`block text-lg font-medium ${
+              loadingMakes || !makes.length ? 'text-gray-400' : ''
+            }`}
+          >
             Select Make <span className="text-red-400">*</span>
           </label>
           <select
             id="make"
-            className={`w-full max-w-full mt-2 p-2 border border-gray-300 rounded-md text-black box-border ${
-              loadingMakes || !makes.length ? '' : 'hover:cursor-pointer'
+            className={`font-sans w-full mt-2 p-2 border rounded-md text-sm bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 ${
+              loadingMakes || !makes.length
+                ? 'text-gray-400'
+                : 'hover:cursor-pointer'
             }`}
             onChange={(e) => setmakeID(e.target.value)}
             disabled={loadingMakes || !makes.length}
           >
-            <option value="">{loadingMakes ? '' : 'Select Make'}</option>
+            <option value="">
+              {loadingMakes ? '' : 'Select Make'}
+            </option>
             {makes.map((make) => (
-              <option key={make.MakeId} value={make.MakeId}>
+              <option
+              
+                key={make.MakeId}
+                value={make.MakeId}
+              >
                 {make.MakeName}
               </option>
             ))}
           </select>
-          {loadingMakes && <LoadingDots className="absolute bottom-0 left-2" />}
+          {loadingMakes && (
+            <LoadingDots
+              className="absolute bottom-0 left-2"
+              dotsColor="bg-white"
+            />
+          )}
         </div>
 
         <div className="mb-4">
@@ -122,11 +148,13 @@ export function FilterPage() {
           </label>
           <select
             id="modelYear"
-            className="w-full mt-2 p-2 border border-gray-300 rounded-md text-black hover:cursor-pointer"
+            className="font-sans w-full mt-2 p-2 border rounded-md  hover:cursor-pointer text-sm bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             onChange={(e) => setModelYear(e.target.value)}
             value={modelYear}
           >
-            <option value="">Select Year</option>
+            <option value="">
+              Select Year
+            </option>
             {availableYears.map((year) => (
               <option key={year} value={year}>
                 {year}
@@ -138,10 +166,10 @@ export function FilterPage() {
         <Link href={`/result/${makeID}/${modelYear}`}>
           <button
             onClick={() => setNextWasPressed(true)}
-            className={`border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 text-white border-gray-600 focus:ring-gray-700 ${
+            className={`w-full border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 border-gray-600 focus:ring-gray-700 ${
               isNextDisabled
-                ? 'bg-gray-400 text-gray-400'
-                : 'hover:bg-gray-700 hover:border-gray-600 cursor-pointer'
+                ? 'bg-gray-400 text-gray-500'
+                : 'hover:bg-gray-700 hover:border-gray-600 cursor-pointer text-white'
             }`}
             disabled={isNextDisabled}
           >

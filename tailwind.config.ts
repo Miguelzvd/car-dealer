@@ -12,6 +12,11 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      fontFamily: {
+        sans: ['Roboto', 'Arial', 'sans-serif'],
+        serif: ['Georgia', 'serif'],
+        mono: ['Courier New', 'monospace'],
+      },
     },
   },
   plugins: [],

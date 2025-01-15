@@ -104,7 +104,7 @@ export default async function ResultPage({
 
   if (models.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col justify-center items-center">
+      <main className="min-h-screen flex flex-col justify-center items-center">
         <div className="w-full my-10 max-w-sm p-6 border rounded-lg shadow bg-gray-800 border-gray-700">
           <Link href="/">
             <button className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 text-white border-gray-600 focus:ring-gray-700 hover:bg-gray-700 hover:border-gray-600 cursor-pointer">
@@ -121,7 +121,7 @@ export default async function ResultPage({
             a different make and year combination or come back later!
           </p>
         </div>
-      </div>
+      </main>
     );
   }
 
