@@ -6,6 +6,17 @@ The Car Dealer App is a Next.js web application designed for browsing and filter
 
 ---
 
+## Access the App
+
+You can either run the app locally or access it online:
+
+- **Run Locally**: Follow the steps in the "Running the Application" section to run the app on your machine.
+- **Access Online**: You can also access the live version of the app hosted on Vercel by clicking the link below:
+
+  - [Car Dealer App - Live Version](https://car-dealer-beta.vercel.app)
+
+---
+
 **Features**
 
 - Browse vehicle models by make and year.

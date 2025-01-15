@@ -139,13 +139,16 @@ export default async function ResultPage({
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">
               {models.length > 0 ? models[0].Make_Name : 'Top Makes'}
             </span>{' '}
-            Models from <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">{year}</span>
+            Models from{' '}
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">
+              {year}
+            </span>
           </h1>
         </div>
 
         {models.length > 0 ? (
           <Suspense fallback={<LoadingDots dotsColor="bg-white" />}>
-            <ul className="p-4 cursor-default select-none">
+            <ul className="p-4 cursor-default select-none overflow-y-scroll max-h-96 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-300">
               {models.map((model, key) => (
                 <li
                   key={key}
