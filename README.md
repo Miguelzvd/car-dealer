@@ -2,7 +2,7 @@
 
 ## Overview
 
-    The Car Dealer App is a Next.js web application designed for browsing and filtering vehicle models based on make and year. Users can explore available vehicle models from different car manufacturers and model years, all presented in a clean, interactive interface.
+The Car Dealer App is a Next.js web application designed for browsing and filtering vehicle models based on make and year. Users can explore available vehicle models from different car manufacturers and model years, all presented in a clean, interactive interface.
 
 ---
 
