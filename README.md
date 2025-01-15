@@ -50,7 +50,7 @@ You can either run the app locally or access it online:
    Or, if you prefer yarn:
 
    ````
-   yarn install```
+   yarn install
    ````
 
 3. Set up environment variables
@@ -82,7 +82,7 @@ Here are a few screenshots of the app in action:
 
 - **Home page (Next Button disabled):** ![Home page](./app_screenshots/home.png)
 - **Selecting Vehicle Type:** ![Selecting Vehicle Type](./app_screenshots/selecting_type.png)
-- **Loading Make:** ![Loading Make](./loading_make.png)
+- **Loading Make:** ![Loading Make](./app_screenshots/loading_make.png)
 - **Next Button (Enabled):** ![Next Button Enabled](./app_screenshots/next_button_enabled.png)
 - **Next Button (Redirecting):** ![Next Button Redirecting](./app_screenshots/next_button_redirecting.png)
 - **Vehicle Model Results:** ![Vehicle Model Results](./app_screenshots/results_page.png)
