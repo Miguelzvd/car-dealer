@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { LoadingDots } from "./LoadingDots";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { LoadingDots } from './LoadingDots';
 
 export interface ICarMake {
   MakeId: number;
@@ -20,16 +20,16 @@ export interface ICarMakeResponse {
 
 const fetchMakes = async (vehicleType: string) => {
   const response = await fetch(
-    `https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/${vehicleType}?format=json`
+    `https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/${vehicleType}?format=json`,
   );
   const data: ICarMakeResponse = await response.json();
   return data.Results || [];
 };
 
 export function FilterPage() {
-  const [vehicleType, setVehicleType] = useState("");
-  const [modelYear, setModelYear] = useState("");
-  const [makeID, setmakeID] = useState("");
+  const [vehicleType, setVehicleType] = useState('');
+  const [modelYear, setModelYear] = useState('');
+  const [makeID, setmakeID] = useState('');
   const [makes, setMakes] = useState<ICarMake[]>([]);
   const [availableYears, setAvailableYears] = useState<number[]>([]);
   const [nextWasPressed, setNextWasPressed] = useState(false);
@@ -39,12 +39,12 @@ export function FilterPage() {
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: 11 }, (_, i) => currentYear - i);
     setAvailableYears(years);
-  }, []);  
+  }, []);
 
   const isNextDisabled = !vehicleType || !modelYear || nextWasPressed;
 
   const handleVehicleTypeChange = async (
-    e: React.ChangeEvent<HTMLSelectElement>
+    e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const selectedVehicleType = e.target.value;
     setVehicleType(selectedVehicleType);
@@ -56,7 +56,7 @@ export function FilterPage() {
         const fetchedMakes = await fetchMakes(selectedVehicleType);
         setMakes(fetchedMakes);
       } catch (error) {
-        console.error("Error fetching makes:", error);
+        console.error('Error fetching makes:', error);
       } finally {
         setLoadingMakes(false);
       }
@@ -101,12 +101,12 @@ export function FilterPage() {
           <select
             id="make"
             className={`w-full max-w-full mt-2 p-2 border border-gray-300 rounded-md text-black box-border ${
-              loadingMakes || !makes.length ? "" : "hover:cursor-pointer"
+              loadingMakes || !makes.length ? '' : 'hover:cursor-pointer'
             }`}
             onChange={(e) => setmakeID(e.target.value)}
             disabled={loadingMakes || !makes.length}
           >
-            <option value="">{loadingMakes ? "" : "Select Make"}</option>
+            <option value="">{loadingMakes ? '' : 'Select Make'}</option>
             {makes.map((make) => (
               <option key={make.MakeId} value={make.MakeId}>
                 {make.MakeName}
@@ -140,12 +140,12 @@ export function FilterPage() {
             onClick={() => setNextWasPressed(true)}
             className={`border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 text-white border-gray-600 focus:ring-gray-700 ${
               isNextDisabled
-                ? "bg-gray-400 text-gray-400"
-                : "hover:bg-gray-700 hover:border-gray-600 cursor-pointer"
+                ? 'bg-gray-400 text-gray-400'
+                : 'hover:bg-gray-700 hover:border-gray-600 cursor-pointer'
             }`}
             disabled={isNextDisabled}
           >
-            {nextWasPressed ? "Redirecting" : "Next"}
+            {nextWasPressed ? 'Redirecting' : 'Next'}
           </button>
         </Link>
       </div>
