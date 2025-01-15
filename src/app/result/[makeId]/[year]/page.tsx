@@ -134,12 +134,12 @@ export default async function ResultPage({
           </button>
         </Link>
         <div className="flex flex-row justify-center mb-6 gap-4">
-          <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 text-center animate-pulse">
-            Explore All Vehicle Models for{' '}
-            <span className="font-semibold text-white">
-              {models.length > 0 ? models[0].Make_Name : 'A Stunning Make'}
+          <h1 className="text-5xl font-extrabold text-center">
+            Discover{' '}
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">
+              {models.length > 0 ? models[0].Make_Name : 'Top Makes'}
             </span>{' '}
-            in <span className="font-bold text-emerald-400">{year}</span>
+            Models from <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">{year}</span>
           </h1>
         </div>
 
