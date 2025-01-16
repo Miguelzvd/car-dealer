@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { LoadingDots } from './LoadingDots';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { LoadingDots } from "./LoadingDots";
 
 export interface ICarMake {
   MakeId: number;
@@ -27,9 +27,9 @@ const fetchMakes = async (vehicleType: string) => {
 };
 
 export function FilterPage() {
-  const [vehicleType, setVehicleType] = useState('');
-  const [modelYear, setModelYear] = useState('');
-  const [makeID, setmakeID] = useState('');
+  const [vehicleType, setVehicleType] = useState("");
+  const [modelYear, setModelYear] = useState("");
+  const [makeID, setmakeID] = useState("");
   const [makes, setMakes] = useState<ICarMake[]>([]);
   const [availableYears, setAvailableYears] = useState<number[]>([]);
   const [nextWasPressed, setNextWasPressed] = useState(false);
@@ -56,7 +56,7 @@ export function FilterPage() {
         const fetchedMakes = await fetchMakes(selectedVehicleType);
         setMakes(fetchedMakes);
       } catch (error) {
-        console.error('Error fetching makes:', error);
+        console.error("Error fetching makes:", error);
       } finally {
         setLoadingMakes(false);
       }
@@ -98,7 +98,7 @@ export function FilterPage() {
           <label
             htmlFor="make"
             className={`block text-lg font-medium ${
-              loadingMakes || !makes.length ? 'text-gray-400' : ''
+              loadingMakes || !makes.length ? "text-gray-400" : ""
             }`}
           >
             Select Make <span className="text-red-400">*</span>
@@ -107,13 +107,13 @@ export function FilterPage() {
             id="make"
             className={`font-sans w-full mt-2 p-2 border rounded-md text-sm bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 ${
               loadingMakes || !makes.length
-                ? 'text-gray-400'
-                : 'hover:cursor-pointer'
+                ? "text-gray-400"
+                : "hover:cursor-pointer"
             }`}
             onChange={(e) => setmakeID(e.target.value)}
             disabled={loadingMakes || !makes.length}
           >
-            <option value="">{loadingMakes ? '' : 'Select Make'}</option>
+            <option value="">{loadingMakes ? "" : "Select Make"}</option>
             {makes.map((make) => (
               <option key={make.MakeId} value={make.MakeId}>
                 {make.MakeName}
@@ -152,12 +152,12 @@ export function FilterPage() {
             onClick={() => setNextWasPressed(true)}
             className={`w-full border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 border-gray-600 focus:ring-gray-700 ${
               isNextDisabled
-                ? 'bg-gray-400 text-gray-500'
-                : 'hover:bg-gray-700 hover:border-gray-600 cursor-pointer text-white'
+                ? "bg-gray-400 text-gray-500"
+                : "hover:bg-gray-700 hover:border-gray-600 cursor-pointer text-white"
             }`}
             disabled={isNextDisabled}
           >
-            {nextWasPressed ? 'Redirecting' : 'Next'}
+            {nextWasPressed ? "Redirecting" : "Next"}
           </button>
         </Link>
       </div>
