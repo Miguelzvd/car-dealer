@@ -87,18 +87,10 @@ export function FilterPage() {
             onChange={handleVehicleTypeChange}
             value={vehicleType}
           >
-            <option value="">
-              Select Type
-            </option>
-            <option value="car">
-              Car
-            </option>
-            <option value="truck">
-              Truck
-            </option>
-            <option value="motorcycle">
-              Motorcycle
-            </option>
+            <option value="">Select Type</option>
+            <option value="car">Car</option>
+            <option value="truck">Truck</option>
+            <option value="motorcycle">Motorcycle</option>
           </select>
         </div>
 
@@ -121,15 +113,9 @@ export function FilterPage() {
             onChange={(e) => setmakeID(e.target.value)}
             disabled={loadingMakes || !makes.length}
           >
-            <option value="">
-              {loadingMakes ? '' : 'Select Make'}
-            </option>
+            <option value="">{loadingMakes ? '' : 'Select Make'}</option>
             {makes.map((make) => (
-              <option
-              
-                key={make.MakeId}
-                value={make.MakeId}
-              >
+              <option key={make.MakeId} value={make.MakeId}>
                 {make.MakeName}
               </option>
             ))}
@@ -152,9 +138,7 @@ export function FilterPage() {
             onChange={(e) => setModelYear(e.target.value)}
             value={modelYear}
           >
-            <option value="">
-              Select Year
-            </option>
+            <option value="">Select Year</option>
             {availableYears.map((year) => (
               <option key={year} value={year}>
                 {year}

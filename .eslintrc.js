@@ -19,5 +19,6 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    quotes: ['error', 'single'],
   },
 };

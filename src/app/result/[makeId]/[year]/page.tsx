@@ -1,6 +1,6 @@
-import { LoadingDots } from '@/app/components/LoadingDots';
-import Link from 'next/link';
-import { Suspense } from 'react';
+import { LoadingDots } from "@/app/components/LoadingDots";
+import Link from "next/link";
+import { Suspense } from "react";
 
 type Params = {
   makeId: string;
@@ -36,7 +36,7 @@ const getCarModels = async (
     const data: ICarModelResponse = await response.json();
     return data.Results || [];
   } catch (error) {
-    console.error('Error fetching vehicle models:', error);
+    console.error("Error fetching vehicle models:", error);
     return null;
   }
 };
@@ -44,15 +44,15 @@ const getCarModels = async (
 const getMakes = async (): Promise<string[]> => {
   try {
     const response = await fetch(
-      'https://vpic.nhtsa.dot.gov/api/vehicles/getAllMakes?format=json',
+      "https://vpic.nhtsa.dot.gov/api/vehicles/getAllMakes?format=json",
     );
     if (!response.ok) {
-      throw new Error('Failed to fetch makes.');
+      throw new Error("Failed to fetch makes.");
     }
     const data = await response.json();
     return data.Results.map((make: { Make_Name: string }) => make.Make_Name);
   } catch (error) {
-    console.error('Error fetching makes:', error);
+    console.error("Error fetching makes:", error);
     return [];
   }
 };
@@ -108,15 +108,15 @@ export default async function ResultPage({
         <div className="w-full my-10 max-w-sm p-6 border rounded-lg shadow bg-gray-800 border-gray-700">
           <Link href="/">
             <button className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 text-white border-gray-600 focus:ring-gray-700 hover:bg-gray-700 hover:border-gray-600 cursor-pointer">
-              {'Go back'}
+              {"Go back"}
             </button>
           </Link>
           <p className="text-lg text-gray-400">
-            Oops! We couldn&apos;t find any vehicle models for{' '}
+            Oops! We couldn&apos;t find any vehicle models for{" "}
             <span className="font-semibold text-emerald-400">
-              {models.length === 0 ? 'this make' : 'this selection'}
-            </span>{' '}
-            in the year{' '}
+              {models.length === 0 ? "this make" : "this selection"}
+            </span>{" "}
+            in the year{" "}
             <span className="font-semibold text-emerald-400">{year}</span>. Try
             a different make and year combination or come back later!
           </p>
@@ -130,16 +130,16 @@ export default async function ResultPage({
       <div className="w-[80%] sm:w-[30rem] border rounded-lg shadow bg-gray-800 border-gray-700 p-6 my-6">
         <Link href="/">
           <button className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-gray-800 text-white border-gray-600 focus:ring-gray-700 hover:bg-gray-700 hover:border-gray-600 cursor-pointer">
-            {'Go back'}
+            {"Go back"}
           </button>
         </Link>
         <div className="flex flex-row justify-center mb-6 gap-4">
           <h1 className="text-5xl font-extrabold text-center">
-            Discover{' '}
+            Discover{" "}
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">
-              {models.length > 0 ? models[0].Make_Name : 'Top Makes'}
-            </span>{' '}
-            Models from{' '}
+              {models.length > 0 ? models[0].Make_Name : "Top Makes"}
+            </span>{" "}
+            Models from{" "}
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-600 animate-pulse">
               {year}
             </span>
@@ -148,11 +148,13 @@ export default async function ResultPage({
 
         {models.length > 0 ? (
           <Suspense fallback={<LoadingDots dotsColor="bg-white" />}>
-            <ul className="p-4 cursor-default select-none overflow-y-scroll max-h-96 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-300">
+            <ul className="relative p-4 cursor-default select-none overflow-y-auto max-h-96 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-300">
+              <div className="pointer-events-none sticky inset-x-0 top-[-1rem] h-5 bg-gradient-to-b from-gray-800 to-transparent" />
+
               {models.map((model, key) => (
                 <li
                   key={key}
-                  className="py-3 px-4 mb-3 bg-slate-700 border shadow-lg border-slate-600 rounded-md hover:bg-slate-600 transition-colors"
+                  className="py-3 px-4 mb-3 bg-slate-700 border shadow-lg border-slate-600 rounded-md hover:bg-slate-600 transition-colors select-text"
                 >
                   <p className="text-lg text-sky-400">
                     <span className="font-bold text-white">Model: </span>
@@ -162,6 +164,7 @@ export default async function ResultPage({
                   </p>
                 </li>
               ))}
+              <div className="pointer-events-none sticky inset-x-0 bottom-[-1rem] h-5 bg-gradient-to-t from-gray-800 to-transparent" />
             </ul>
           </Suspense>
         ) : (

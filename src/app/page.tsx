@@ -1,4 +1,4 @@
-import { FilterPage } from './components/filterpage';
+import { FilterPage } from "./components/filterpage";
 
 export default function Home() {
   return (

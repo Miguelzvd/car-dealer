@@ -49,9 +49,9 @@ You can either run the app locally or access it online:
 
    Or, if you prefer yarn:
 
-   ````
+   ```
    yarn install
-   ````
+   ```
 
 3. Set up environment variables
    Make sure you have the required environment variables set up. You can create a .env.local file at the root of the project if necessary.

@@ -1,7 +1,7 @@
 export function LoadingDots({
-  className = '',
-  dotSize = '0.5rem',
-  dotsColor = 'bg-black',
+  className = "",
+  dotSize = "0.5rem",
+  dotsColor = "bg-black",
 }) {
   const dotStyle = {
     height: dotSize,
@@ -15,11 +15,11 @@ export function LoadingDots({
       <span className="sr-only">Loading...</span>
       <div
         className={`${dotsColor} rounded-full animate-bounce`}
-        style={{ ...dotStyle, animationDelay: '-0.3s' }}
+        style={{ ...dotStyle, animationDelay: "-0.3s" }}
       ></div>
       <div
         className={`${dotsColor} rounded-full animate-bounce`}
-        style={{ ...dotStyle, animationDelay: '-0.15s' }}
+        style={{ ...dotStyle, animationDelay: "-0.15s" }}
       ></div>
       <div
         className={`${dotsColor} rounded-full animate-bounce`}
